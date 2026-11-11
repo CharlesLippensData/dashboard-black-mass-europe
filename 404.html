@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Page introuvable</title>
+<style>
+:root{color-scheme:light;--plan:#f3f4f1;--surface:#fcfcfb;--encre:#1d2124;--encre2:#52514e;--discret:#6f6e69;--bord:rgba(11,11,11,.12);--champ:#fff;--accent:#2a78d6;--accent-fort:#1f63b8;--sur-accent:#fff;--erreur:#b42318;--focus:rgba(42,120,214,.35)}
+@media (prefers-color-scheme:dark){:root{color-scheme:dark;--plan:#0f1110;--surface:#1a1c1b;--encre:#f0efec;--encre2:#c3c2b7;--discret:#a3a29b;--bord:rgba(255,255,255,.14);--champ:#111312;--accent:#6aa6ee;--accent-fort:#8cbcf3;--sur-accent:#0b1220;--erreur:#f97066;--focus:rgba(106,166,238,.4)}}
+*{box-sizing:border-box}
+html{height:100%}
+body{margin:0;min-height:100%;background:var(--plan);color:var(--encre);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;display:flex;padding-block:24px;padding-inline:16px}
+.acces{margin:auto;width:100%;max-width:380px;background:var(--surface);border:1px solid var(--bord);border-radius:14px;padding:28px 24px 22px;display:flex;flex-direction:column;gap:14px}
+.icone{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent)}
+h1{font-size:21px;line-height:1.25;margin:0}
+p{margin:0}
+.intro{color:var(--encre2)}
+form{display:flex;flex-direction:column;gap:10px}
+form[hidden]{display:none}
+label{font-size:13px;font-weight:600;color:var(--encre2)}
+.champ{display:flex;border:1px solid var(--bord);border-radius:9px;background:var(--champ);overflow:hidden}
+.champ:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--focus)}
+.champ input{flex:1;min-width:0;border:0;background:transparent;color:var(--encre);font:inherit;font-size:16px;padding:10px 12px;outline:none}
+.champ button{border:0;border-left:1px solid var(--bord);background:transparent;color:var(--encre2);font:inherit;font-size:13px;padding:0 12px;cursor:pointer}
+.champ button:hover{color:var(--encre)}
+.case{display:flex;align-items:center;gap:8px;font-weight:400;font-size:13.5px;color:var(--encre2);cursor:pointer}
+.case input{width:16px;height:16px;margin:0;accent-color:var(--accent)}
+button[type=submit]{border:0;border-radius:9px;background:var(--accent);color:var(--sur-accent);font:inherit;font-weight:600;padding:11px 14px;cursor:pointer}
+button[type=submit]:hover{background:var(--accent-fort)}
+button:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+button:disabled,input:disabled{opacity:.6;cursor:progress}
+.etat{min-height:1.5em;font-size:13.5px;color:var(--discret)}
+.etat:empty{display:none}
+.erreur{color:var(--erreur);font-weight:600}
+.note{font-size:12.5px;color:var(--discret);border-top:1px solid var(--bord);padding-top:12px}
+.masque{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+a{color:var(--accent)}</style>
+</head>
+<body>
+<main class="acces">
+<h1>Page introuvable</h1>
+<p class="intro">Cette adresse ne correspond à aucune page du site.</p>
+<p><a id="retour" href="./">Revenir à l'accueil</a></p>
+</main>
+<script>
+(function () {
+  // site de projet GitHub Pages : https://compte.github.io/depot/... -> l'accueil est /depot/
+  var morceaux = location.pathname.split("/").filter(Boolean);
+  if (/\.github\.io$/.test(location.hostname) && morceaux.length) document.getElementById("retour").href = "/" + morceaux[0] + "/";
+})();
+</script>
+</body>
+</html>
